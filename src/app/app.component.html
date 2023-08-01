@@ -1,0 +1,12 @@
+<!-- <div>
+  <h1>To Do List TASKS</h1>
+  <label for="addTaskInput">Que tenemos que hacer hoy??</label>
+  <br>
+  <input #newItem placeholder="Agregar un pendiente" (keyup.enter)="addTask(newItem.value); newItem.value= ''"
+    class="lg-text-input" id="addItemInput">
+  <button class="btn-primary" (click)="addTask(newItem.value)">Agregar</button>
+  <ul>
+    <li *ngFor="let item of allTasks">{{item.description}}</li>
+  </ul>
+</div> -->
+<router-outlet></router-outlet>

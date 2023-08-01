@@ -1,0 +1,60 @@
+<div>
+  <h2>Data API demo</h2>
+  <ul>
+    <li *ngFor="let item of data">
+
+      User_name: {{item.name_user}}
+      <br>• description: {{ item.description }}
+      <br>• status: {{ item.status }}
+      <br>• deadline: {{item.deadline}}
+      <br>• createdDate: {{item.createDate}}
+      <br><br>
+    </li>
+
+
+    <h2>Add Tasks</h2>
+    <form (ngSubmit)="onSubmit()">
+      Choice Id name:<select name="user_name" id="userName" [(ngModel)]="selectedUserName">
+        <option [value]="item._id" *ngFor="let item of data">{{ item.name_user }}</option>
+      </select>
+      <br><br>
+      Select Status:
+      <select name="status" id="status" [(ngModel)]="selectedStatus">
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <br><br>
+      Typing description:
+      <br>
+      <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task new description"
+        [(ngModel)]="taskDescription" maxlength="200"></textarea>
+      <br>
+      Choice deadline:
+      <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline">
+      <br><br>
+      <!-- Fecha de creación: <input type="datetime-local" name="createdDate" id="deadline" [(ngModel)]="selectedCreateDate"> -->
+      <hr style="width: 50%; margin-left: 0;">
+      <button type=" submit">Add Task</button>
+    </form>
+
+    <br>
+
+    <!-- <h2>Edit Tasks</h2>
+    <form action="" name="" method="">
+      <select name="user_name" id="">
+        <option value="" *ngFor="let item of data">{{ item.description }}</option>
+      </select>
+      <br><br>
+      <select name="status" id="">
+        <option value="">Pending</option>
+        <option value="">In Progress</option>
+        <option value="">Completed</option>
+      </select>
+      <br><br>
+      <textarea name="" id="" cols="30" rows="10" placeholder="Typing task new description" maxlength="200"></textarea>
+      <br><br>
+      <input type="date" name="deadline">
+    </form> -->
+  </ul>
+</div>
