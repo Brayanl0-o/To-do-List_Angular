@@ -1,46 +1,70 @@
 <div>
-  <h2>Data API demo</h2>
-  <ul>
-    <li *ngFor="let item of data">
+  <section>
+    <h1 style="text-align: center; margin-left:10%; margin-right: 60%; border-bottom: 1px rgb(23, 54, 155) solid;">
+      Data API To-Do List
+    </h1>
+    <ul style="list-style: none; border-right: 1px rgb(23, 54, 155) solid; margin-right: 50%;">
+      <li>
+        <h2>Tasks</h2>
+      </li>
+      <hr style=" background-color: rgb(5, 20, 105); height: 1px;">
+      <li *ngFor=" let item of data">
+        • <b>User name: </b>{{ getUserNameById(item.name_user) }}
+        <br>•<b> Name Task:</b> {{ item.name_task }}
+        <br>• <b>Description:</b> {{ item.description }}
+        <br>• <b>Status: </b>{{ item.status }}
+        <br>• <b>Deadline: </b>{{item.deadline}}
+        <br><b>• Created Date:</b> {{item.createDate}}
+        <br><br>
+        <button type="button" (click)="deleteTask(item._id)">DELETE</button>
+        <hr style="background-color: rgb(5, 20, 105); height: 1px;">
+      </li>
+    </ul>
+  </section>
+  <br>
 
-      User_name: {{item.name_user}}
-      <br>• description: {{ item.description }}
-      <br>• status: {{ item.status }}
-      <br>• deadline: {{item.deadline}}
-      <br>• createdDate: {{item.createDate}}
-      <br><br>
-    </li>
+  <hr style="width: 30%; margin-left: 5%; background-color: rgb(24, 24, 155); height: 2px;">
+  <h2
+    style=" color: rgb(4, 4, 36); text-align: center; margin-left: 5%; width: 30%; border-right: 3px solid rgb(9, 27, 129);border-left: 3px solid rgb(9, 27, 129); ">
+    Form for add New Task</h2>
+  <hr style="width: 80%; margin-left: 5%; width: 30%; background-color: rgb(9, 27, 129); height: 2px;">
 
-
-    <h2>Add Tasks</h2>
-    <form (ngSubmit)="onSubmit()">
-      Choice Id name:<select name="user_name" id="userName" [(ngModel)]="selectedUserName">
-        <option [value]="item._id" *ngFor="let item of data">{{ item.name_user }}</option>
+  <br>
+  <section style="margin-left: 5%;">
+    <hr style="width: 50%;margin-left: 0; background-color: rgb(9, 27, 129); height: 2px;">
+    <h2>♫ ☻☺ Add Tasks ☺☻ ♪</h2>
+    <form (ngSubmit)=" onSubmit()" ngNativeValidate>
+      ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserName" required>
+        <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
       </select>
       <br><br>
-      Select Status:
-      <select name="status" id="status" [(ngModel)]="selectedStatus">
+      ► Name Task: <input type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskName"
+        placeholder="Typing task name" required>
+      <br><br>
+      ► Typing description:
+      <br>
+      <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
+        [(ngModel)]="taskDescription" maxlength="200" required></textarea>
+      <br>
+      ☼ Choice deadline:
+      <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline" required>
+      <br><br>
+      ◙ Select Status:
+      <select name="status" id="status" [(ngModel)]="selectedStatus" required>
         <option value="Pending">Pending</option>
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
       <br><br>
-      Typing description:
-      <br>
-      <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task new description"
-        [(ngModel)]="taskDescription" maxlength="200"></textarea>
-      <br>
-      Choice deadline:
-      <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline">
-      <br><br>
-      <!-- Fecha de creación: <input type="datetime-local" name="createdDate" id="deadline" [(ngModel)]="selectedCreateDate"> -->
-      <hr style="width: 50%; margin-left: 0;">
-      <button type=" submit">Add Task</button>
+      <hr style="width: 50%;margin-left: 0; background-color: rgb(9, 27, 129); height: 2px;">
+      <button type="submit">Add Task</button>
+
     </form>
+    <hr style="width: 50%;margin-left: 0; background-color: rgb(9, 27, 129); height: 2px;">
+  </section>
+  <br>
 
-    <br>
-
-    <!-- <h2>Edit Tasks</h2>
+  <!-- <h2>Edit Tasks</h2>
     <form action="" name="" method="">
       <select name="user_name" id="">
         <option value="" *ngFor="let item of data">{{ item.description }}</option>
@@ -56,5 +80,5 @@
       <br><br>
       <input type="date" name="deadline">
     </form> -->
-  </ul>
+
 </div>

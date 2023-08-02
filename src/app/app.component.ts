@@ -11,10 +11,7 @@ export class AppComponent {
   title = "Todo-list"
 
   allTasks = [
-    { description: "Programar", done: true },
-    { description: "Comer", done: false },
-    { description: "Lavar", done: false },
-    { description: "Hacer ejercicio", done: false }
+    {}
   ]
 
   // get items() {
@@ -31,6 +28,12 @@ export class AppComponent {
       description,
       done: false
     })
+  }
+  deleteTask(description: string) {
+    const index = this.allTasks.findIndex(task => task === description);
+    if (index !== -1) {
+      this.allTasks.splice(index, 1);
+    }
   }
 }
 
