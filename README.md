@@ -54,12 +54,12 @@ This To-Do List web application is built using Angular and fetches task data fro
 
 • First Parte
 
-![Texto alternativo](images/ToDoListImage.png)
+![TodoList image](images/ToDoListImage.png)
 
 
 • Second Part
 
-![Texto alternativo](images/ToDoList2.png)
+![TodoList form Image](images/ToDoList2.png)
 
 
 

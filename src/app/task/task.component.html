@@ -16,7 +16,7 @@
           <br><b>Deadline: </b>{{item.deadline}}
           <br><br>
           <div class="buttons">
-            <button type="button" [routerLink]="['.']" fragment="edit-task">EDIT TASK</button>
+            <button type="button">EDIT TASK</button>
             <button type="button">MORE DETAILS</button>
             <button type="button" (click)="deleteTask(item._id)">DELETE</button>
           </div>
@@ -76,29 +76,29 @@
     <hr>
     <br>
     <!-- Form to edit tasks -->
-    <section class="form-edit-tasks" id="edit-task">
+    <!-- <section class="form-edit-tasks" id="edit-task">
       <hr>
       <h2>♫ ☻☺ Edit Tasks ☺☻ ♪</h2>
-      <form (ngSubmit)=" onSubmit()" ngNativeValidate>
-        ► Name Task: <select type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskName"
+      <form (ngSubmit)="updateTask()" ngNativeValidate>
+        ► Name Task: <select type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskNameForEdit"
           placeholder="Typing task name" required>
-          <option *ngFor=" let item of data">{{item.name_task}}</option>
+          <option *ngFor="let item of data" [value]="item.name_task">{{item.name_task}}</option>
         </select>
         <br><br>
-        ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserName" required>
+        ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserNameForEdit" required>
           <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
         </select>
         <br><br>
         ► Typing description:
         <br>
         <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
-          [(ngModel)]="taskDescription" maxlength="200" required></textarea>
+          [(ngModel)]="taskDescriptionForEdit" maxlength="200" required></textarea>
         <br>
         ☼ Choice deadline:
-        <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline" required>
+        <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadlineForEdit" required>
         <br><br>
         ◙ Select Status:
-        <select name="status" id="status" [(ngModel)]="selectedStatus" required>
+        <select name="status" id="status" [(ngModel)]="selectedStatusForEdit" required>
           <option value="Pending">Pending</option>
           <option value="In Progress">In Progress</option>
           <option value="Completed">Completed</option>
@@ -109,7 +109,7 @@
 
       </form>
       <hr>
-    </section>
+    </section> -->
 
   </article>
 </body>

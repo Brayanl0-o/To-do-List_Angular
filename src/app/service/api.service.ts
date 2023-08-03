@@ -30,9 +30,16 @@ export class ApiService {
     return this.http.post<any>('http://www.localhost:3010/api/tasks/create', task);
   }
 
+
   //Method to delete a task using the API
   deleteTask(taskId: string): Observable<any> {
     const url = `${this.urlApiTasks}/delete/${taskId}`;
     return this.http.delete<any>(url);
   }
+
+
+  // updateTask(task: any): Observable<any> {
+  //   const url = `${this.urlApiTasks}/tasks/${task._id}`;
+  //   return this.http.put(url, task);
+  // }
 }
