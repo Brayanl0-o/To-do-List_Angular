@@ -1,0 +1,60 @@
+body {
+  margin: auto;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.342);
+
+}
+
+article.To-Do {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  align-items: center;
+  background-color: aqua;
+
+}
+
+section.list-tasks {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+}
+
+section.list-tasks>ul {
+  width: 80%;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+}
+
+section.list-tasks>ul>li {
+  margin-bottom: 5%;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+}
+
+section.list-tasks>ul>li>h4 {
+  background-color: azure;
+  text-align: center;
+  color: rgb(1, 26, 90);
+}
+
+section.list-tasks>ul>li>b {
+  background-color: azure;
+  color: rgb(17, 57, 165);
+}
+
+article.To-Do>h2 {
+  color: blue;
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+
+}

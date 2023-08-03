@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Task } from './task';
+// import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,7 @@ import { Task } from './task';
 export class AppComponent {
   title = "Todo-list"
 
-  allTasks = [
-    {}
-  ]
+  // allTasks = []
 
   // get items() {
   //   if (this.filter === "all") {
@@ -23,18 +21,18 @@ export class AppComponent {
   //   })
   // }
 
-  addTask(description: string) {
-    this.allTasks.unshift({
-      description,
-      done: false
-    })
-  }
-  deleteTask(description: string) {
-    const index = this.allTasks.findIndex(task => task === description);
-    if (index !== -1) {
-      this.allTasks.splice(index, 1);
-    }
-  }
+  // addTask(description: string) {
+  //   this.allTasks.unshift({
+  //     description,
+  //     done: false
+  //   })
+  // }
+  // deleteTask(description: string) {
+  //   const index = this.allTasks.findIndex(task => task === description);
+  //   if (index !== -1) {
+  //     this.allTasks.splice(index, 1);
+  //   }
+  // }
 }
 
 
