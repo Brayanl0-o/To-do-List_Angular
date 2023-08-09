@@ -49,3 +49,9 @@ This To-Do List web application is built using Angular and fetches task data fro
 ![ToDoList Image](images/ToDoListImage.png)
 ![ToDoList Form Image](images/ToDoList2.png)
 
+# To-Do List Data API
+This application is connected to the following API that was developed using Express and MongoDB Atlas.
+
+API Repository: https://github.com/Vincent10-o/To-Do-List
+
+The linked repository contains the Data API for the To-Do List application. You can find detailed information about the API setup and contribution guidelines there.
