@@ -25,6 +25,12 @@ export class TaskComponent {
 
   constructor(private apiService: ApiService) { }
 
+  // onSelect(task: Task): void {
+  //   this.selectedTaskId = task;
+  //   this.selectedTaskId.add('TaskComponent: Selected hero id=${data.id')
+  // }
+
+
   //Component live cicle method that execute where its initalitan
   ngOnInit(): void {
     this.getTasksData();

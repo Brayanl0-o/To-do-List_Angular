@@ -1,8 +1,7 @@
 body {
   margin: auto;
   width: 80%;
-  background-color: rgba(0, 0, 0, 0.342);
-
+  background: linear-gradient(165deg, #096e00bd, #0049cf9d);
 }
 
 article.To-Do {
@@ -10,51 +9,172 @@ article.To-Do {
   flex-flow: column wrap;
   width: 100%;
   align-items: center;
-  background-color: aqua;
+}
+
+article.To-Do>h1 {
+  color: rgb(0, 0, 5);
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: xxx-large;
 
 }
 
 section.list-tasks {
-  background-color: aquamarine;
+  background: linear-gradient(135deg, #40d4326c, #0953db8c);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  width: 80%;
+  padding: 20px;
 }
 
 section.list-tasks>ul {
-  width: 80%;
+  width: 100%;
   list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
 }
 
 section.list-tasks>ul>li {
-  margin-bottom: 5%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s;
+}
+
+section.list-tasks>ul>li:hover {
+  transform: translateY(-5px);
+}
+
+section.list-tasks>ul>li>h4 {
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+section.list-tasks>ul>li>b {
+  font-weight: bold;
+  color: #555;
+}
+
+section.list-tasks>ul>li>hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
 }
 
 .buttons {
   display: flex;
-  gap: 10px;
-
+  justify-content: space-around;
 }
 
-section.list-tasks>ul>li>h4 {
-  background-color: azure;
+.buttons button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #45a049;
+}
+
+.buttons button.delete {
+  background-color: #f44336;
+}
+
+.buttons button.delete:hover {
+  background-color: #d32f2f;
+}
+
+.list-tasks-empty {
   text-align: center;
-  color: rgb(1, 26, 90);
+  color: #555;
+  font-style: italic;
 }
 
-section.list-tasks>ul>li>b {
-  background-color: azure;
-  color: rgb(17, 57, 165);
-}
-
-article.To-Do>h2 {
-  color: blue;
-  text-align: center;
+.forms-box {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-width: 1000px;
+  margin: 0 auto;
 
+}
+
+.forms-box section {
+  flex: 1;
+  margin: 10px;
+  padding: 10%;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forms-box h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.forms-box label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.forms-box select,
+.forms-box input[type="text"],
+.forms-box textarea,
+.forms-box input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.forms-box textarea {
+  resize: vertical;
+}
+
+.forms-box select {
+  appearance: none;
+  background: transparent;
+}
+
+.forms-box select::-ms-expand {
+  display: none;
+}
+
+.forms-box button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.forms-box button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.forms-box hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
 }
