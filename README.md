@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
-## Development server
+## Development Server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a development server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
@@ -14,19 +14,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Further Help
 
-## Running end-to-end tests
+For more help with the Angular CLI, use `ng help` or visit the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
+---
 
 # Early Frontend
 
@@ -42,7 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### Description
 
-This To-Do List web application is built using Angular and fetches task data from a remote API. The application allows users to view their tasks, add new tasks, edit existing tasks, and delete tasks. 
+This To-Do List web application is built using Angular and fetches task data from a remote API. The application allows users to view their tasks, add new tasks, edit existing tasks, and delete tasks.
 
 ### Features
 
@@ -50,17 +43,15 @@ This To-Do List web application is built using Angular and fetches task data fro
 - Add new tasks to the list by providing task name, description, status, and deadline.
 - Edit existing tasks to update their details.
 - Delete tasks from the list.
-<!-- Add more future resources and explanation -->
 
-• First Parte
+<!-- Add more future resources and explanations if needed -->
 
-![TodoList image](images/ToDoListImage.png)
+![ToDoList Image](images/ToDoListImage.png)
+![ToDoList Form Image](images/ToDoList2.png)
 
+# To-Do List Data API
+This application is connected to the following API that was developed using Express and MongoDB Atlas.
 
-• Second Part
+API Repository: https://github.com/Vincent10-o/To-Do-List
 
-![TodoList form Image](images/ToDoList2.png)
-
-
-
-
+The linked repository contains the Data API for the To-Do List application. You can find detailed information about the API setup and contribution guidelines there.

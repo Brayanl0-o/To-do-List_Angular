@@ -1,0 +1,33 @@
+<!-- Form to edit tasks -->
+<!-- <section class="form-edit-tasks" id="edit-task">
+  <h2>Form for Edit Task</h2>
+  <h2>♫ ☻☺ Edit Tasks ☺☻ ♪</h2>
+  <form (ngSubmit)="updateTask()" ngNativeValidate>
+    ► Name Task: <select type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskNameForEdit"
+      placeholder="Typing task name" required>
+      <option *ngFor="let item of data" [value]="item.name_task">{{item.name_task}}</option>
+    </select>
+    <br><br>
+    ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserNameForEdit" required>
+      <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
+    </select>
+    <br><br>
+    ► Typing description:
+    <br>
+    <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
+      [(ngModel)]="taskDescriptionForEdit" maxlength="200" required></textarea>
+    <br>
+    ☼ Choice deadline:
+    <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadlineForEdit" required>
+    <br><br>
+    ◙ Select Status:
+    <select name="status" id="status" [(ngModel)]="selectedStatusForEdit" required>
+      <option value="Pending">Pending</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+    <br><br>
+    <hr>
+    <button type="submit">Update Task</button>
+  </form>
+</section> -->

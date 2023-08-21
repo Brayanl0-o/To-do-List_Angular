@@ -15,6 +15,7 @@
           <br> <b>Created Date:</b> {{task.createDate}}
           <br><b>Deadline: </b>{{task.deadline}}
           <br><br>
+          <hr>
           <div class="buttons">
             <button type="button" (click)="editTask(task)">EDIT TASK</button>
             <button type="button" (click)="deleteTask(task._id)">DELETE</button>
@@ -103,4 +104,6 @@
 
 
   </article>
+  <!-- <app-task-detail [task]="selectedTaskId"></app-task-detail> -->
+
 </body>

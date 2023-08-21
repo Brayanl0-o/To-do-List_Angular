@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent
+    TaskComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
