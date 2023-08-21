@@ -9,18 +9,17 @@ import { ApiService } from '../service/api.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
+
 //Class handling data sent for form and interaction page
 export class TaskComponent {
-  data: any[] = [];
+  taskData: any[] = [];
   usersData: any[] = [];
   selectedTaskId: string = '';
   selectedUserName: string = '';
   selectedTaskName: string = '';
-  taskDescription: string = '';
+  selectedDescription: string = '';
   selectedDeadline: Date = new Date();
   selectedStatus: string = '';
-  selectedDelete: String = '';
-  description: string = '';
 
 
   constructor(private apiService: ApiService) { }
@@ -48,88 +47,9 @@ export class TaskComponent {
   //Method for get data task Api, and show in console
   getTasksData() {
     this.apiService.getTask().subscribe(tasksData => {
-      this.data = tasksData;
-      console.log(this.data);
+      this.taskData = tasksData;
+      console.log(this.taskData);
     });
-  }
-
-
-
-  loadTasks() {
-    // Llamada al servicio para obtener la lista de tareas
-    this.apiService.getTask().subscribe((response: any) => {
-      this.data = response; // Asignar la respuesta a la variable data
-    });
-  }
-
-  // selectedTaskIdForEdit: string = '';
-  // selectedUserNameForEdit: string = '';
-  // selectedTaskNameForEdit: string = '';
-  // taskDescriptionForEdit: string = '';
-  // selectedDeadlineForEdit: Date = new Date();
-  // selectedStatusForEdit: string = '';
-
-  // editTask(task: any) {
-  //   this.selectedTaskIdForEdit = task._id;
-  //   this.selectedTaskNameForEdit = task.name_task;
-  //   this.selectedUserNameForEdit = task.name_user;
-  //   this.taskDescriptionForEdit = task.description;
-  //   this.selectedDeadlineForEdit = task.deadline;
-  //   this.selectedStatusForEdit = task.status;
-
-  // }
-
-  // updateTask() {
-  //   // Crear un objeto con los datos actualizados de la tarea
-  //   const updatedTask = {
-  //     _id: this.selectedTaskIdForEdit,
-  //     name_task: this.selectedTaskNameForEdit,
-  //     name_user: this.selectedUserNameForEdit,
-  //     description: this.taskDescriptionForEdit,
-  //     deadline: this.selectedDeadlineForEdit,
-  //     status: this.selectedStatusForEdit
-  //   };
-
-  //   // Llamada al servicio para actualizar la tarea
-  //   this.apiService.updateTask(updatedTask).subscribe((response: any) => {
-  //     // Si la actualización fue exitosa, buscar y actualizar la tarea en el arreglo data
-  //     const index = this.data.findIndex(task => task._id === this.selectedTaskIdForEdit);
-  //     if (index !== -1) {
-  //       this.data[index] = updatedTask;
-  //     }
-
-  //     // Limpiar los campos del formulario después de la actualización
-  //     this.clearForm();
-  //   }, error => {
-  //     // Manejar el error en caso de que ocurra
-  //     console.error('Error updating task:', error);
-  //     // Puedes mostrar un mensaje de error o tomar alguna otra acción aquí
-  //   });
-  // }
-
-  // clearForm() {
-  //   // Limpiar los campos del formulario después de la actualización
-  //   this.selectedTaskId = '';
-  //   this.selectedTaskName = '';
-  //   this.selectedUserName = '';
-  //   this.taskDescription = '';
-  //   this.selectedDeadline = new Date();
-  //   this.selectedStatus = '';
-  // }
-
-
-
-  //Method for delete selected task for task Id, and reloadPage
-  deleteTask(taskId: string) {
-    this.apiService.deleteTask(taskId).subscribe(
-      response => {
-        console.log('Tarea eliminada exitosamente:', response);
-        this.reloadPage();
-      },
-      error => {
-        console.error('Error al eliminar la tarea:', error);
-      }
-    );
   }
 
   //Method for sent new data typing in the form to API
@@ -137,7 +57,7 @@ export class TaskComponent {
     const newTask = {
       name_user: this.selectedUserName,
       name_task: this.selectedTaskName,
-      description: this.taskDescription,
+      description: this.selectedDescription,
       status: this.selectedStatus,
       deadline: this.selectedDeadline,
 
@@ -157,5 +77,76 @@ export class TaskComponent {
   reloadPage() {
     window.location.reload();
   }
+
+
+
+  // EDIT AND DELETE
+
+  selectedTaskIdForEdit: string = '';
+  selectedUserNameForEdit: string = '';
+  selectedTaskNameForEdit: string = '';
+  taskDescriptionForEdit: string = '';
+  selectedDeadlineForEdit: Date = new Date();
+  selectedStatusForEdit: string = '';
+
+  editTask(task: any) {
+    this.selectedTaskIdForEdit = task._id;
+    this.selectedTaskNameForEdit = task.name_task;
+    this.selectedUserNameForEdit = task.name_user;
+    this.taskDescriptionForEdit = task.description;
+    this.selectedDeadlineForEdit = task.deadline;
+    this.selectedStatusForEdit = task.status;
+
+  }
+
+  updateTask() {
+    // Create an object with the task update data
+    const updatedTask = {
+      _id: this.selectedTaskIdForEdit,
+      name_task: this.selectedTaskNameForEdit,
+      name_user: this.selectedUserNameForEdit,
+      description: this.taskDescriptionForEdit,
+      deadline: this.selectedDeadlineForEdit,
+      status: this.selectedStatusForEdit
+    };
+    // Call to service for update task
+    this.apiService.updateTask(updatedTask).subscribe((response: any) => {
+      // If update was exit, search and update the task in the data array
+      const index = this.taskData.findIndex(taskData => taskData._id === this.selectedTaskIdForEdit);
+      if (index !== -1) {
+        this.taskData[index] = updatedTask;
+      }
+      console.log("Task update")
+      // Clean the form fields after from update
+      this.clearForm();
+
+    }, error => {
+      console.error('Error updating task:', error);
+    });
+  }
+
+  clearForm() {
+    // CLean the form fields after update
+    this.selectedTaskId = '';
+    this.selectedTaskName = '';
+    this.selectedUserName = '';
+    this.selectedDescription = '';
+    this.selectedDeadline = new Date();
+    this.selectedStatus = '';
+  }
+
+  //Method for delete selected task for task Id, and reloadPage
+  deleteTask(taskId: string) {
+    this.apiService.deleteTask(taskId).subscribe(
+      response => {
+        console.log('Tarea eliminada exitosamente:', response);
+        this.reloadPage();
+      },
+      error => {
+        console.error('Error al eliminar la tarea:', error);
+      }
+    );
+  }
+
 
 }

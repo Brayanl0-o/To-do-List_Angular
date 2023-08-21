@@ -1,60 +1,93 @@
+/* Reset some default styling */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li,
+form {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  margin: auto;
-  width: 80%;
-  background-color: rgba(0, 0, 0, 0.342);
-
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-article.To-Do {
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-  align-items: center;
-  background-color: aqua;
-
+article {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-section.list-tasks {
-  background-color: aquamarine;
-  display: flex;
-  justify-content: center;
+h1,
+h2,
+h3,
+h4 {
+  color: #333;
 }
 
-section.list-tasks>ul {
-  width: 80%;
+ul {
   list-style: none;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-
 }
 
-section.list-tasks>ul>li {
-  margin-bottom: 5%;
+li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .buttons {
+  margin-top: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form {
   display: flex;
-  gap: 10px;
-
+  flex-direction: column;
 }
 
-section.list-tasks>ul>li>h4 {
-  background-color: azure;
-  text-align: center;
-  color: rgb(1, 26, 90);
+input[type="text"],
+textarea,
+select,
+input[type="date"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-section.list-tasks>ul>li>b {
-  background-color: azure;
-  color: rgb(17, 57, 165);
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
-article.To-Do>h2 {
-  color: blue;
-  text-align: center;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
+button[type="submit"] {
+  background-color: #28a745;
+}
 
+button[type="submit"]:hover {
+  background-color: #1e7e34;
 }

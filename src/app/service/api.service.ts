@@ -38,8 +38,8 @@ export class ApiService {
   }
 
 
-  // updateTask(task: any): Observable<any> {
-  //   const url = `${this.urlApiTasks}/tasks/${task._id}`;
-  //   return this.http.put(url, task);
-  // }
+  updateTask(task: any): Observable<any> {
+    const url = `${this.urlApiTasks}/update/${task._id}`;
+    return this.http.patch(url, task);
+  }
 }
