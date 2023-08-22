@@ -72,6 +72,7 @@ export class TaskComponent {
     this.apiService.addTask(newTask).subscribe(
       response => {
         console.log('Formulario enviado exitosamente:', response);
+        alert("Tarea Añadida");
         this.reloadPage();
       },
       error => {
@@ -84,6 +85,12 @@ export class TaskComponent {
     window.location.reload();
   }
 
+  // showForm: boolean = true;
+
+  // toggleSection() {
+  //   this.showForm = !this.showForm
+  //   console.log(this.showForm);
+  // }
 
 
   // EDIT AND DELETE
@@ -122,9 +129,9 @@ export class TaskComponent {
       if (index !== -1) {
         this.taskData[index] = updatedTask;
       }
-      console.log("Task update")
+      alert("Tarea Actualizada");
       // Clean the form fields after from update
-      this.clearForm();
+      this.reloadPage();
 
     }, error => {
       console.error('Error updating task:', error);

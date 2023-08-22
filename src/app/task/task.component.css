@@ -1,30 +1,28 @@
-/* Reset some default styling */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-li,
-form {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  margin: auto;
-  width: 80%;
-  background: linear-gradient(165deg, #096e00bd, #0049cf9d);
+  width: 100%;
+  margin: 0;
+  padding: 0px;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
 }
 
 article.To-Do {
   display: flex;
   flex-flow: column wrap;
-  width: 100%;
   align-items: center;
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.616);
+  background-color: #80a3e0;
+  background-image: linear-gradient(90deg, #80a3e0 0%, #a4aec9 29%, #94a1b3 75%, #80a3e0 100%);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #161616;
 }
 
 article.To-Do>h1 {
@@ -32,185 +30,172 @@ article.To-Do>h1 {
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   font-size: xxx-large;
+}
 
-  article {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
+section.list-tasks {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 80%;
+  padding: 0px;
+}
 
-  section.list-tasks {
-    background: linear-gradient(135deg, #40d4326c, #0953db8c);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-    padding: 20px;
+section.list-tasks>ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: auto;
+  width: 100%;
+  list-style: none;
+}
 
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: #333;
-    }
+section.list-tasks>ul>li {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #a4aec9;
+  background-image: linear-gradient(0deg, #7f8fbd 10%, #405a7c18 50%);
+  margin-bottom: 5%;
+  width: 40%;
+  transition: transform 0.4s;
+}
 
-    section.list-tasks>ul {
-      width: 80%;
-      list-style: none;
-    }
+li {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
 
-    section.list-tasks>ul>li {
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      transition: transform 0.2s;
+section.list-tasks>ul>li:hover {
+  transform: translateY(-30px);
+}
 
-      li {
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #eee;
-      }
+section.list-tasks>ul>li>h4 {
+  font-size: 20px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
 
-      section.list-tasks>ul>li:hover {
-        transform: translateY(-5px);
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
 
-        .buttons {
-          margin-top: 10px;
-        }
+.edit,
+.delete {
+  background-color: #317dcf;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
 
-        section.list-tasks>ul>li>h4 {
-          font-size: 20px;
-          text-align: center;
-          color: #333;
-          margin-bottom: 10px;
+.edit:hover,
+.delete:hover {
+  background-color: #007bff;
+  transform: scale(1.05);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
 
-          button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin-right: 10px;
-          }
+section.list-tasks>ul>li>b {
+  font-weight: bold;
+  color: #555;
+}
 
-          section.list-tasks>ul>li>b {
-            font-weight: bold;
-            color: #555;
-          }
+section.list-tasks>ul>li>hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
 
-          section.list-tasks>ul>li>hr {
-            border: none;
-            border-top: 1px solid #ccc;
-            margin: 10px 0;
+form {
+  display: flex;
+  flex-direction: column;
+}
 
-          }
+.buttons button.delete {
+  background-color: #91241c;
+}
 
-          .buttons {
-            margin-top: 10px;
-          }
+.buttons button.delete:hover {
+  background-color: #ff0000;
+}
 
-          button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 5px 10px;
-            cursor: pointer;
-            margin-right: 10px;
-          }
+article.To-Do>h2 {
+  color: blue;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
-          button:hover {
-            background-color: #0056b3;
-          }
+input[type="text"],
+textarea,
+select,
+input[type="date"] {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-          form {
-            display: flex;
-            flex-direction: column;
-          }
+input[type="text"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
 
-          input[type="text"],
-          textarea,
-          select,
-          input[type="date"] {
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-          }
+/* Styles for buttons forms*/
+.form-button {
+  background-color: #0056b3;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
 
-          input[type="text"]:focus,
-          textarea:focus,
-          select:focus,
-          input[type="date"]:focus {
-            border-color: #007bff;
-            outline: none;
-          }
+.form-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
 
-          button[type="submit"] {
-            background-color: #28a745;
-          }
+.cont-forms {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0%;
+  margin-bottom: 5%;
+}
 
-          button[type="submit"]:hover {
-            background-color: #1e7e34;
-            justify-content: space-around;
-          }
+.form-add-tasks,
+.form-edit-tasks {
+  padding: 50px;
+  transition: .5s transform;
+}
 
-          .buttons button {
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-          }
+.form-add-tasks:hover {
+  border-radius: 20px;
+  background-color: #80a3e0;
+  background-image: linear-gradient(0deg, #80a3e0 11%, #a4aec9 49%);
+  transform: scale(1.1);
+}
 
-          .buttons button:hover {
-            background-color: #45a049;
-          }
-
-          .buttons button.delete {
-            background-color: #f44336;
-          }
-
-          .buttons button.delete:hover {
-            background-color: #d32f2f;
-          }
-
-          article.To-Do>h2 {
-            color: blue;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-          }
-
-          input[type="text"],
-          textarea,
-          select,
-          input[type="date"] {
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-          }
-
-          input[type="text"]:focus,
-          textarea:focus,
-          select:focus,
-          input[type="date"]:focus {
-            border-color: #007bff;
-            outline: none;
-          }
-
-          button[type="submit"] {
-            background-color: #28a745;
-          }
-
-        }
+.form-edit-tasks:hover {
+  border-radius: 20px;
+  background-color: #80a3e0;
+  background-image: linear-gradient(0deg, #80a3e0 11%, #a4aec9 49%);
+  transform: scale(1.1);
+}

@@ -1,13 +1,12 @@
 <body>
   <article class="To-Do">
     <h1>Data API To-Do List</h1>
-    <h2>Tasks</h2>
-
     <!-- Section show and delete tasks -->
     <section class="list-tasks">
+      <!-- <h2>Tasks</h2> -->
       <ul>
         <li *ngFor=" let task of taskData">
-          <b>task_name: {{ task.name_task }}</b>
+          <b>Task name: {{ task.name_task }}</b>
           <br>
           <b>User name: </b>{{ getUserNameById(task.name_user) }}
           <br> <b>Description:</b> {{ task.description }}
@@ -17,91 +16,90 @@
           <br><br>
           <hr>
           <div class="buttons">
-            <button type="button" (click)="editTask(task)">EDIT TASK</button>
-            <button type="button" (click)="deleteTask(task._id)">DELETE</button>
+            <a href="#edit-task">
+              <button type="button" class="edit" (click)="editTask(task)">EDIT TASK</button>
+            </a>
+            <button type=" button" class="delete" (click)="deleteTask(task._id)">DELETE</button>
           </div>
           <hr>
         </li>
       </ul>
     </section>
     <br>
-
-    <!-- Form to edit tasks -->
-    <section class="form-edit-tasks" id="edit-task">
-      <!-- Title Form to edit tasks -->
-      <h2>Form for Edit Task</h2>
-      <hr>
-      <h2>♫ ☻☺ Edit Tasks ☺☻ ♪</h2>
-      <form (ngSubmit)="updateTask()" ngNativeValidate>
-        ► Name Task: <input type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskNameForEdit"
-          placeholder="Typing task name" required>
-
-        <br><br>
-        ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserNameForEdit" required>
-          <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
-        </select>
-        <br><br>
-        ► Typing description:
-        <br>
-        <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
-          [(ngModel)]="taskDescriptionForEdit" maxlength="200" required></textarea>
-        <br>
-        ☼ Choice deadline:
-        <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadlineForEdit" required>
-        <br><br>
-        ◙ Select Status:
-        <select name="status" id="status" [(ngModel)]="selectedStatusForEdit" required>
-          <option value="pending">Pending</option>
-          <option value="in progress">In Progress</option>
-          <option value="completed">Completed</option>
-        </select>
-        <br><br>
+    <div class="cont-forms">
+      <!-- Form to edit tasks -->
+      <section class="form-edit-tasks" id="edit-task">
+        <!-- Title Form to edit tasks -->
+        <h2>Form for Edit Task</h2>
         <hr>
-        <button type="submit">Update Task</button>
+        <h2>♫ ☻☺ Edit Tasks ☺☻ ♪</h2>
+        <form (ngSubmit)="updateTask()" ngNativeValidate>
+          ► Name Task: <input type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskNameForEdit"
+            placeholder="Typing task name" required>
 
-      </form>
-      <hr>
-    </section>
-
-    <br>
-
-    <!-- Form to add new Taask -->
-    <section class="form-add-tasks">
-      <!-- Title Form to add new Taask -->
-      <h2>
-        Form for add New Task</h2>
-      <hr>
-      <h2>♫ ☻☺ Add Tasks ☺☻ ♪</h2>
-      <form (ngSubmit)=" onSubmit()" ngNativeValidate>
-        ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserName" required>
-          <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
-        </select>
-        <br><br>
-        ► Name Task: <input type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskName"
-          placeholder="Typing task name" required>
-        <br><br>
-        ► Typing description:
-        <br>
-        <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
-          [(ngModel)]="selectedDescription" maxlength="200" required></textarea>
-        <br>
-        ☼ Choice deadline:
-        <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline" required>
-        <br><br>
-        ◙ Select Status:
-        <select name="status" id="status" [(ngModel)]="selectedStatus" required>
-          <option value="pending">Pending</option>
-          <option value="in progress">In Progress</option>
-          <option value="completed">Completed</option>
-        </select>
-        <br><br>
+          <br><br>
+          ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserNameForEdit" required>
+            <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
+          </select>
+          <br><br>
+          ► Typing description:
+          <br>
+          <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
+            [(ngModel)]="taskDescriptionForEdit" maxlength="200" required></textarea>
+          <br>
+          ☼ Choice deadline:
+          <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadlineForEdit" required>
+          <br><br>
+          ◙ Select Status:
+          <select name="status" id="status" [(ngModel)]="selectedStatusForEdit" required>
+            <option value="pending">Pending</option>
+            <option value="in progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <br><br>
+          <button type="submit" class="form-button">Update Task</button>
+        </form>
         <hr>
-        <button type="submit">Add Task</button>
-      </form>
-      <hr>
-    </section>
-    <br>
+      </section>
 
+      <br>
+
+      <!-- Form to add new Taask -->
+      <section class="form-add-tasks" id="add-task">
+        <!-- Title Form to add new Taask -->
+        <h2> Form for Add New Task</h2>
+        <hr>
+        <h2>♫ ☻☺ Add Tasks ☺☻ ♪</h2>
+        <form (ngSubmit)=" onSubmit()" ngNativeValidate>
+
+          ► Name Task: <input type="text" name="name_task" id="name_task" [(ngModel)]="selectedTaskName"
+            placeholder="Typing task name" required>
+          <br><br>
+          ► Choice name user:<select name="user_name" id="userName" [(ngModel)]="selectedUserName" required>
+            <option [value]="user._id" *ngFor="let user of usersData">{{ user.first_name}}</option>
+          </select>
+          <br><br>
+          ► Typing description:
+          <br>
+          <textarea name="description" id="description" cols="30" rows="10" placeholder="Typing task description"
+            [(ngModel)]="selectedDescription" maxlength="200" required></textarea>
+          <br>
+          ☼ Choice deadline:
+          <input type="date" name="deadline" id="deadline" [(ngModel)]="selectedDeadline" required>
+          <br><br>
+          ◙ Select Status:
+          <select name="status" id="status" [(ngModel)]="selectedStatus" required>
+            <option value="pending">Pending</option>
+            <option value="in progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <br><br>
+          <button type="submit" class="form-button">Add Task</button>
+        </form>
+        <hr>
+      </section>
+      <br>
+    </div>
 
   </article>
   <!-- <app-task-detail [task]="selectedTaskId"></app-task-detail> -->
