@@ -19,8 +19,8 @@ This To-Do List web application is built using Angular and fetches task data fro
 
 <!-- Add more future resources and explanations if needed -->
 
-![ToDoList Image](images/ToDoListImage.png)
-![ToDoList Form Image](images/ToDoList2.png)
+![ToDoList Image](/src/app/images/ToDoListImage.png)
+![ToDoList Form Image](/src/app/images/ToDoList2.png)
 
 
 ### To-Do_List_Data_API
